@@ -84,6 +84,7 @@
 #include <maya/MArgList.h>
 #include <maya/MArgParser.h>
 #include <maya/MAnimUtil.h>
+#include <maya/MDistance.h>
 
 #ifdef _WIN32
     #define NOMINMAX

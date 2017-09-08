@@ -547,6 +547,7 @@ bool MeshSyncClientMaya::extractTransformData(ms::Transform& dst, MObject src)
 
     dst.path = GetPath(src);
     pos = mtrans.getTranslation(MSpace::kTransform, &stat);
+    ConvertToMeter(pos);
     stat = mtrans.getRotation(rot, MSpace::kTransform);
     stat = mtrans.getScale(scale);
     dst.transform.position.assign(&pos[0]);
@@ -870,6 +871,7 @@ bool MeshSyncClientMaya::extractMeshData(ms::Mesh& dst, MObject src)
         auto len = points.length();
         dst.points.resize(len);
         for (uint32_t i = 0; i < len; ++i) {
+            ConvertToMeter(points[i]);
             dst.points[i] = (const mu::float3&)points[i];
         }
     }

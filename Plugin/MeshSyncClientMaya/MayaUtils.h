@@ -46,3 +46,6 @@ void ConvertAnimationFloat3(
 void ConvertAnimationFloat4(
     RawVector<ms::TVP<mu::float4>>& dst,
     const mu::float4& default_value, MPlug& px, MPlug& py, MPlug& pz, MPlug& pw, int samples_per_seconds);
+
+void ConvertToMeter(MVector& vec);
+void ConvertToMeter(MFloatPoint& point);

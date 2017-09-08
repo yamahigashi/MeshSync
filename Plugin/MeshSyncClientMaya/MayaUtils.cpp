@@ -372,3 +372,25 @@ void ConvertAnimationFloat4(
     GatherSamples(dst, acz, time_samples, [](mu::float4& v, double s) { v.z = (float)s; });
     GatherSamples(dst, acw, time_samples, [](mu::float4& v, double s) { v.w = (float)s; });
 }
+
+void ConvertToMeter(MVector& vec)
+{
+    MDistance x(vec.x);
+    MDistance y(vec.y);
+    MDistance z(vec.z);
+
+    vec.x = x.asMeters();
+    vec.y = y.asMeters();
+    vec.z = z.asMeters();
+}
+
+void ConvertToMeter(MFloatPoint& point)
+{
+    MDistance x((double)point.x);
+    MDistance y((double)point.y);
+    MDistance z((double)point.z);
+
+    point.x = (float)x.asMeters();
+    point.y = (float)y.asMeters();
+    point.z = (float)z.asMeters();
+}
